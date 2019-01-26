@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 136700444729103038}
   m_Layer: 9
   m_Name: Double Bass
-  m_TagString: Untagged
+  m_TagString: Destructible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,6 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smashSound: {fileID: 0}
   dialogueKey: doubleBass
+  pointValue: 200
 --- !u!136 &136700444729103038
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 136706784475362814}
   m_Layer: 9
   m_Name: Typewriter
-  m_TagString: Untagged
+  m_TagString: Destructible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,7 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smashSound: {fileID: 8300000, guid: a7deee4b0aa41e3449a6e3e9932c5486, type: 3}
   dialogueKey: typewriter
-  pointValue: 100
+  pointValue: 60
 --- !u!136 &136706784475362814
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 136679394010918986}
   m_Layer: 9
   m_Name: Clock
-  m_TagString: Untagged
+  m_TagString: Destructible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,7 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smashSound: {fileID: 8300000, guid: ba7b74e7f89d49345beac06622877e3e, type: 3}
   dialogueKey: grandfatherClock
-  pointValue: 100
+  pointValue: 180
 --- !u!136 &136679394010918986
 CapsuleCollider:
   m_ObjectHideFlags: 1

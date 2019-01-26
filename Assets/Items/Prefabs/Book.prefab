@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 136706784475362814}
   m_Layer: 9
   m_Name: Book
-  m_TagString: Untagged
+  m_TagString: Destructible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,6 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smashSound: {fileID: 8300000, guid: 0847a7f8849c6024bae84722e82371ea, type: 3}
   dialogueKey: book
+  pointValue: 60
 --- !u!136 &136706784475362814
 CapsuleCollider:
   m_ObjectHideFlags: 1
