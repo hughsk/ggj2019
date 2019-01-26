@@ -9,6 +9,7 @@ TagManager:
   - ShowOnPause
   - ShowOnFinish
   - Destructible
+  - ShowTheJoe
   layers:
   - Default
   - TransparentFX
