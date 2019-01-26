@@ -32,7 +32,7 @@ public class TextBubble : MonoBehaviour {
         yield return new WaitForSeconds(0.04f);
       }
 
-      yield return new WaitForSeconds(2f);
+      yield return new WaitForSeconds(1.2f);
       writing = false;
       yield return new WaitForSeconds(0.5f);
       waiting = false;
