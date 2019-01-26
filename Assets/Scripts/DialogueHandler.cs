@@ -5,16 +5,28 @@ using UnityEngine.UI;
 
 public class DialogueHandler : MonoBehaviour
 {
-    public string DisplayText;
-    public float DisplayDelay;
-    //public 0
-    
+    public float delay = 0.1f;
+    private string currentText = "";
+    public string fullText;
+    //private CSVReader[] displayText;
 
-    public void FixedUpdate()
+
+    private void Start()
     {
-        for (int i = 1; i <- 2; i++)
+        SetText();
+    }
+    void SetText()
+    {
+        StartCoroutine(ShowText());
+    }
+
+    IEnumerator ShowText()
+    {
+        for(int i=0; i < fullText.Length; i++)
         {
-            //DisplayText = 
+            currentText = fullText.Substring(0, i);
+            this.GetComponent<Text>().text = currentText;
+            yield return new WaitForSeconds(delay);
         }
     }
 }

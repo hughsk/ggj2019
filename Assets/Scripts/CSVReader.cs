@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class CSVReader : MonoBehaviour
 {
-     List<Dialogue> dialogue = new List<Dialogue>();
-    // Use this for initialization
+    List<Dialogue> dialogue = new List<Dialogue>();
+
     void Start()
     {
-        TextAsset testCSV = Resources.Load<TextAsset>("testCSV");
+        TextAsset displayText = Resources.Load<TextAsset>("testCSV");
 
-        string[] data = testCSV.text.Split('\n');
+        string[] data = displayText.text.Split('\n');
         //Debug.Log(data.Length);
         for (int i = 2; i < data.Length - 1; i++)
         {
@@ -26,11 +26,8 @@ public class CSVReader : MonoBehaviour
                 q.description = row[2];
             }
             dialogue.Add(q);
-        }
-
-        foreach (Dialogue q in dialogue)
-        {
-            Debug.Log(q.name + "," + q.description);
+            string cat = row[2].ToString();
+            Debug.Log(cat);
         }
     }
 }
