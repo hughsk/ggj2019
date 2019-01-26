@@ -17,10 +17,9 @@ public class ScoreFloater : MonoBehaviour {
     var color = text.color;
     color.a -= Time.deltaTime;
     xform.position += Vector3.up * Time.deltaTime * 1.8f;
-    Debug.Log(xform.position);
     text.color = color;
     if (color.a <= 0f) {
-      // Destroy(gameObject);
+      Destroy(gameObject);
     }
   }
 
