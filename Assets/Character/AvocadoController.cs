@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(AudioSource))]
 public class AvocadoController : MonoBehaviour {
   [SerializeField] Transform cameraTransform;
   [SerializeField] LayerMask swingMask;
   [SerializeField] [Range(0f, 5f)] float swingRadius = 1.5f;
+  [SerializeField] AudioClip[] swingSounds;
+
   Rigidbody rb;
   Transform xform;
+  AudioSource source;
 
   Vector3 forward;
   Vector3 right;
@@ -21,11 +25,14 @@ public class AvocadoController : MonoBehaviour {
     right = new Vector3(cameraTransform.right.x, 0f, cameraTransform.right.z).normalized;
     rb = GetComponent<Rigidbody>();
     xform = GetComponent<Transform>();
+    source = GetComponent<AudioSource>();
   }
 
   void Update () {
     if (Input.GetButtonUp("Jump")) {
       var targets = GetSwingTargets();
+
+      PlaySound(swingSounds);
 
       for (int i = 0; i < targets.targetCount; i++) {
         if (targets.inRanges[i]) {
@@ -97,5 +104,10 @@ public class AvocadoController : MonoBehaviour {
 
   Vector3 GetSwingMiddle () {
     return GetCameraRelative(swingDirection, 0f);
+  }
+
+  void PlaySound (AudioClip[] sounds) {
+    int random = Mathf.FloorToInt(Random.Range(0f, sounds.Length - 1f));
+    source.PlayOneShot(sounds[random]);
   }
 }
