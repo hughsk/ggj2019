@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 public class SwingTarget : MonoBehaviour {
-  [SerializeField] AudioClip smashSound;
+  [SerializeField] public AudioClip smashSound;
   [SerializeField] string dialogueKey;
 
   ParticleSystem particleSystem;

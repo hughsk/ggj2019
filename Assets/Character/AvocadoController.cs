@@ -49,6 +49,9 @@ public class AvocadoController : MonoBehaviour {
 
       for (int i = 0; i < targets.targetCount; i++) {
         if (targets.inRanges[i]) {
+          var sound = targets.targets[i].smashSound;
+          if (sound != null) PlaySound(sound);
+
           targets.targets[i].Smash(particles, bubble, reader);
         }
       }
@@ -156,6 +159,10 @@ public class AvocadoController : MonoBehaviour {
 
   Vector3 GetSwingMiddle () {
     return GetCameraRelative(swingDirection, 0f);
+  }
+
+  void PlaySound (AudioClip sounds) {
+    source.PlayOneShot(sounds);
   }
 
   void PlaySound (AudioClip[] sounds) {
