@@ -50,11 +50,10 @@ public class AvocadoController : MonoBehaviour {
 
       for (int i = 0; i < targets.targetCount; i++) {
         if (targets.inRanges[i]) {
-          var sound = targets.targets[i].smashSound;
-          if (sound != null) PlaySound(sound);
-
-
           if (targets.targets[i].Smash(particles, bubble, reader)) {
+            var sound = targets.targets[i].smashSound;
+            if (sound != null) PlaySound(sound);
+
             var xform = targets.targets[i].transform;
             var floater = Instantiate<ScoreFloater>(floaterPrefab);
             floater.transform.position = xform.position + Vector3.up;
