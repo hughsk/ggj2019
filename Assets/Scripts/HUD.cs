@@ -10,13 +10,17 @@ public class HUD : MonoBehaviour
     public Text scoreText;
     public Text finalScore;
     public float score;
+    public float minScore = 0;
+    public float maxScore = 16000000;
+    public Slider scoreBar;
     public float pointValue;
     public int timeLeft;
     public Text countdown;
     private string scoreDesc;
     bool keepTiming;
 
-    public string LevelName;
+    public string MenuName;
+    public string CreditsName;
 
     GameObject[] pauseObjects;
     GameObject[] scoreObjects;
@@ -38,6 +42,7 @@ public class HUD : MonoBehaviour
         countdown.text = ("" + timeLeft);
         score = score + pointValue;
         SetScoreText();
+        scoreBar.value = score;
 
         if (timeLeft == 0)
         {
@@ -127,7 +132,6 @@ public class HUD : MonoBehaviour
         {
             scoreDesc = "purchase a private island!!";
         }
-
     }
 
     public void hideScore()
@@ -156,12 +160,12 @@ public class HUD : MonoBehaviour
 
     public void OnMenu_Clicked()
     {
-        SceneManager.LoadScene(LevelName);
+        SceneManager.LoadScene(MenuName);
     }
 
     public void OnCredit_Clicked()
     {
-        SceneManager.LoadScene(+1);
+        SceneManager.LoadScene(CreditsName);
     }
 
     public void OnReturn_Clicked()
