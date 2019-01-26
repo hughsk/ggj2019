@@ -663,12 +663,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 21420298}
   finalScore: {fileID: 1739222800}
-  score: 1000000
+  score: 0
   minScore: 0
   maxScore: 16000000
   scoreBar: {fileID: 1571047847}
   pointValue: 0
-  timeLeft: 2
+  timeLeft: 60
   countdown: {fileID: 173650300}
   MenuName: TitleScreen
   CreditsName: Credits
@@ -2126,8 +2126,8 @@ RectTransform:
   m_Father: {fileID: 1316172851}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.3, y: 0}
+  m_AnchorMax: {x: 0.3, y: 1}
   m_AnchoredPosition: {x: -209.5, y: 0}
   m_SizeDelta: {x: -1027, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
