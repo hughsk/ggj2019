@@ -28,7 +28,7 @@ public class CSVReader : MonoBehaviour
                 d.name = row[0];
                 d.dialogue = new List<string>();
                 for (int j = 1; j < row.Length; j++) {
-                  var text = row[j];
+                  var text = row[j].Trim();
                   if (text.Length > 0) {
                     d.dialogue.Add(text);
                   }

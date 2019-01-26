@@ -325,8 +325,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89f550794a696f94dac52be35295efb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartClip: {fileID: 8300000, guid: fe66123ed3aafdd4dae7640527199ec7, type: 3}
-  LoopClip: {fileID: 8300000, guid: 5eea5328fc253824fa6db024afe4b047, type: 3}
+  StartClip: {fileID: 8300000, guid: e23ee843a6e59384985f805f491da178, type: 3}
+  LoopClip: {fileID: 8300000, guid: b7a3269352c1c5b4aa8c01f856846be2, type: 3}
 --- !u!1 &505437441
 GameObject:
   m_ObjectHideFlags: 0
