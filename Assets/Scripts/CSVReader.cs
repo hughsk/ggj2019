@@ -25,9 +25,7 @@ public class CSVReader : MonoBehaviour
                 q.name = row[1];
                 q.description = row[2];
             }
-            dialogue.Add(q);
-            string cat = row[2].ToString();
-            Debug.Log(cat);
+            dialogue.Add(q);            
         }
     }
 }
