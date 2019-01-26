@@ -17,11 +17,13 @@ public class AvocadoController : MonoBehaviour {
 
   Vector3 forward;
   Vector3 right;
+  AvoAnimation currentAnimation;
 
   // Left (-1) or right (+1)?
   float swingDirection = 0f;
 
   void OnEnable () {
+    currentAnimation = animIdle;
     forward = new Vector3(cameraTransform.forward.x, 0f, cameraTransform.forward.z).normalized;
     right = new Vector3(cameraTransform.right.x, 0f, cameraTransform.right.z).normalized;
     rb = GetComponent<Rigidbody>();
@@ -53,6 +55,15 @@ public class AvocadoController : MonoBehaviour {
     public bool[] inRanges;
     public int targetCount;
   };
+
+  [System.Serializable]
+  struct AvoAnimation {
+    public Sprite standing;
+    public Sprite walk1;
+    public Sprite walk2;
+  }
+
+  [SerializeField] AvoAnimation animIdle;
 
   SwingTargetResults GetSwingTargets () {
     var swingVector = GetSwingMiddle();
@@ -91,7 +102,7 @@ public class AvocadoController : MonoBehaviour {
 
     if (Mathf.Abs(relativeFrame.z) > 0.001f) {
       swingDirection = Mathf.Sign(relativeFrame.z);
-      sprite.flipX = relativeFrame.z < 0f;
+      sprite.flipX = relativeFrame.z > 0f;
     }
 
     rb.AddForce(relativeFrame, ForceMode.Acceleration);
