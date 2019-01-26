@@ -489,6 +489,30 @@ Prefab:
       propertyPath: m_FontData.m_MinSize
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114217424105268590, guid: 991c6db7cb206ee4cb9c07d9fe8acc4b,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a9c4c8b03af845244b6b39d62746ba4a,
+        type: 3}
+    - target: {fileID: 114421983632846462, guid: 991c6db7cb206ee4cb9c07d9fe8acc4b,
+        type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: f94e8ffa6e3affb40992d52489402c5a,
+        type: 3}
+    - target: {fileID: 114985343807570984, guid: 991c6db7cb206ee4cb9c07d9fe8acc4b,
+        type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: f94e8ffa6e3affb40992d52489402c5a,
+        type: 3}
+    - target: {fileID: 114673477376136196, guid: 991c6db7cb206ee4cb9c07d9fe8acc4b,
+        type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: f94e8ffa6e3affb40992d52489402c5a,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 114520965887280042, guid: 991c6db7cb206ee4cb9c07d9fe8acc4b, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 991c6db7cb206ee4cb9c07d9fe8acc4b, type: 2}
