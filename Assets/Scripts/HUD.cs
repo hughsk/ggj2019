@@ -159,6 +159,11 @@ public class HUD : MonoBehaviour
         SceneManager.LoadScene(LevelName);
     }
 
+    public void OnCredit_Clicked()
+    {
+        SceneManager.LoadScene(+1);
+    }
+
     public void OnReturn_Clicked()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
