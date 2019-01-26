@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e653a8073e1e943a5ed70d6e6b3871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smashSound: {fileID: 0}
+  smashSound: {fileID: 8300000, guid: e8d7fc2f4e0974d4ba5fde27186c0410, type: 3}
   dialogueKey: globe
   pointValue: 500
 --- !u!136 &136706784475362814

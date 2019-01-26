@@ -39,7 +39,7 @@ public class HUD : MonoBehaviour
 
     void Update()
     {
-        countdown.text = ("" + timeLeft);
+        countdown.text = ("Time: " + timeLeft);
         score = score + pointValue;
         SetScoreText();
         scoreBar.value = score;
