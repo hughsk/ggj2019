@@ -34,7 +34,7 @@ public class SpawnGroups : MonoBehaviour {
       if (System.Math.Abs(index - groupId) > 2) {
         var group = groups[index];
         for (var i = 0; i < group.Count; i++) {
-          Destroy(group[i].gameObject);
+          if (group[i] != null) Destroy(group[i].gameObject);
         }
 
         flaggedForDeletion.Add(index);
