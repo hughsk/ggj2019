@@ -570,6 +570,8 @@ MonoBehaviour:
   bubble: {fileID: 114078398006954636}
   reader: {fileID: 0}
   animPeriod: 0.1
+  floaterPrefab: {fileID: 114525570769279694, guid: fd45315de728d154998f49bca3db0325,
+    type: 2}
   animIdle:
     standing: {fileID: 21300000, guid: 25a23e81250575b4da50521eeb1f76b8, type: 3}
     walk1: {fileID: 21300022, guid: 25a23e81250575b4da50521eeb1f76b8, type: 3}

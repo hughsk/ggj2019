@@ -14,6 +14,7 @@ public class AvocadoController : MonoBehaviour {
   [SerializeField] TextBubble bubble;
   [SerializeField] CSVReader reader;
   [SerializeField] float animPeriod = 0.5f;
+  [SerializeField] ScoreFloater floaterPrefab;
 
   float animCounter = 0f;
   int walkIndex = 0;
@@ -52,7 +53,13 @@ public class AvocadoController : MonoBehaviour {
           var sound = targets.targets[i].smashSound;
           if (sound != null) PlaySound(sound);
 
-          targets.targets[i].Smash(particles, bubble, reader);
+
+          if (targets.targets[i].Smash(particles, bubble, reader)) {
+            var xform = targets.targets[i].transform;
+            var floater = Instantiate<ScoreFloater>(floaterPrefab);
+            floater.transform.position = xform.position + Vector3.up;
+            floater.SetValue(targets.targets[i].pointValue);
+          }
         }
       }
     }
