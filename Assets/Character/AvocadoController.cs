@@ -35,28 +35,14 @@ public class AvocadoController : MonoBehaviour {
     source = GetComponent<AudioSource>();
   }
 
+  bool isSwinging = false;
+
   void Update () {
-    var speed = rb.velocity.magnitude;
-    if (speed > 0.01f) {
-      animCounter += Time.deltaTime * Mathf.Min(1f, speed * 0.25f);
-      while (animCounter > animPeriod) {
-        animCounter -= animPeriod;
-        walkIndex = (walkIndex + 1) % 3;
-
-        switch (walkIndex) {
-          case 0: sprite.sprite = currentAnimation.standing; break;
-          case 1: sprite.sprite = currentAnimation.walk1; break;
-          case 2: sprite.sprite = currentAnimation.walk2; break;
-        }
-      }
-    } else {
-      sprite.sprite = currentAnimation.standing;
-    }
-
-    if (Input.GetButtonUp("Jump")) {
+    if (!isSwinging && Input.GetButtonUp("Jump")) {
       var targets = GetSwingTargets();
 
       PlaySound(swingSounds);
+      StartCoroutine(SwingAnimation());
 
       for (int i = 0; i < targets.targetCount; i++) {
         if (targets.inRanges[i]) {
@@ -64,6 +50,34 @@ public class AvocadoController : MonoBehaviour {
         }
       }
     }
+
+    var speed = rb.velocity.magnitude;
+    if (speed > 0.01f) {
+      animCounter += Time.deltaTime * Mathf.Min(1f, speed * 0.25f);
+      while (animCounter > animPeriod) {
+        animCounter -= animPeriod;
+        walkIndex = (walkIndex + 1) % 3;
+      }
+
+      switch (walkIndex) {
+        case 0: sprite.sprite = currentAnimation.standing; break;
+        case 1: sprite.sprite = currentAnimation.walk1; break;
+        case 2: sprite.sprite = currentAnimation.walk2; break;
+      }
+    } else {
+      sprite.sprite = currentAnimation.standing;
+    }
+  }
+
+  IEnumerator SwingAnimation () {
+    for (int i = 0; i < animSwing.Length; i++) {
+      yield return new WaitForSeconds(0.05f);
+      currentAnimation = animSwing[i];
+    }
+    yield return new WaitForSeconds(0.05f);
+    currentAnimation = animIdle;
+    isSwinging = false;
+    yield return null;
   }
 
   Collider[] colliders = new Collider[10];
@@ -85,6 +99,7 @@ public class AvocadoController : MonoBehaviour {
   }
 
   [SerializeField] AvoAnimation animIdle;
+  [SerializeField] AvoAnimation[] animSwing;
 
   SwingTargetResults GetSwingTargets () {
     var swingVector = GetSwingMiddle();
