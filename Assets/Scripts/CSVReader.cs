@@ -15,7 +15,7 @@ public class CSVReader : MonoBehaviour
 
     void OnEnable()
     {
-        TextAsset displayText = Resources.Load<TextAsset>("itemdialogue");
+        TextAsset displayText = Resources.Load<TextAsset>("draftItemDialogue");
 
         string[] data = displayText.text.Split('\n');
         for (int i = 2; i < data.Length; i++)
