@@ -1502,6 +1502,16 @@ Prefab:
       propertyPath: timeLeft
       value: 60
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1827244805560550, guid: 991c6db7cb206ee4cb9c07d9fe8acc4b, type: 2}
+      propertyPath: m_Name
+      value: FinalScore
+      objectReference: {fileID: 0}
+    - target: {fileID: 114679502129114572, guid: 991c6db7cb206ee4cb9c07d9fe8acc4b,
+        type: 2}
+      propertyPath: score
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114775850348666784, guid: 991c6db7cb206ee4cb9c07d9fe8acc4b, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 991c6db7cb206ee4cb9c07d9fe8acc4b, type: 2}
   m_IsPrefabAsset: 0
