@@ -94,8 +94,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e653a8073e1e943a5ed70d6e6b3871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smashSound: {fileID: 0}
+  smashSound: {fileID: 8300000, guid: 405aa9f009bd33a4595dd93367dfca34, type: 3}
   dialogueKey: couch
+  pointValue: 100
 --- !u!212 &212188819042890772
 SpriteRenderer:
   m_ObjectHideFlags: 1

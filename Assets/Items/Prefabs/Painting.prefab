@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e653a8073e1e943a5ed70d6e6b3871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smashSound: {fileID: 0}
+  smashSound: {fileID: 8300000, guid: fe09a11c42a6bd84b9a1813c0d6f36e5, type: 3}
   dialogueKey: painting
   pointValue: 100
 --- !u!136 &136706784475362814
