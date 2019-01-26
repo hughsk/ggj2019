@@ -4,8 +4,9 @@ using System.Collections;
 public class SwingTarget : MonoBehaviour {
   [SerializeField] public AudioClip smashSound;
   [SerializeField] string dialogueKey;
+  [SerializeField] float pointValue = 100f;
 
-  ParticleSystem particleSystem;
+  new ParticleSystem particleSystem;
   bool smashed = false;
 
   public void Smash (ParticleSystem system, TextBubble bubble, CSVReader reader) {

@@ -9,6 +9,7 @@ public class TextBubble : MonoBehaviour {
   Transform xform;
   Vector3 startPos;
   bool writing = false;
+  bool waiting = false;
 
   void OnEnable () {
     xform = GetComponent<Transform>();
@@ -22,8 +23,9 @@ public class TextBubble : MonoBehaviour {
   }
 
   public IEnumerator WriteText (string text) {
-    if (!writing || text.Length < 1) {
+    if (!writing && text.Length > 0 && !waiting) {
       writing = true;
+      waiting = true;
 
       for (int i = 1; i <= text.Length; i++) {
         tmpro.text = text.Substring(0, i);
@@ -32,6 +34,8 @@ public class TextBubble : MonoBehaviour {
 
       yield return new WaitForSeconds(2f);
       writing = false;
+      yield return new WaitForSeconds(3f);
+      waiting = false;
     }
 
     yield return null;

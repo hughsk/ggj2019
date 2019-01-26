@@ -150,7 +150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 65234346}
   - component: {fileID: 65234347}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BubbleSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +396,7 @@ GameObject:
   - component: {fileID: 283851015}
   - component: {fileID: 283851016}
   - component: {fileID: 283851014}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TextMeshPro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -735,7 +735,7 @@ GameObject:
   - component: {fileID: 539170843}
   - component: {fileID: 539170842}
   - component: {fileID: 539170841}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TMP SubMesh [Knewave-Regular-SDF Material + LiberationSans SDF Atlas]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1614,7 +1614,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1457363563}
   - component: {fileID: 1457363564}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SpeechBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
