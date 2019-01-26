@@ -229,7 +229,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 21005323128837152, guid: ea60cb978c305f540b24ca8eb8b4715c, type: 2}
+  - {fileID: 21456641650508362, guid: 2ab51ed36c98f0540bf56a55b9a22f1e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -452,16 +452,16 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Sample text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ea60cb978c305f540b24ca8eb8b4715c, type: 2}
-  m_sharedMaterial: {fileID: 21005323128837152, guid: ea60cb978c305f540b24ca8eb8b4715c,
+  m_fontAsset: {fileID: 11400000, guid: 2ab51ed36c98f0540bf56a55b9a22f1e, type: 2}
+  m_sharedMaterial: {fileID: 21456641650508362, guid: 2ab51ed36c98f0540bf56a55b9a22f1e,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4282598211
+  m_fontColor: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 1}
   m_enableVertexGradient: 0
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
@@ -572,6 +572,7 @@ MonoBehaviour:
   animPeriod: 0.1
   floaterPrefab: {fileID: 114525570769279694, guid: fd45315de728d154998f49bca3db0325,
     type: 2}
+  hud: {fileID: 0}
   animIdle:
     standing: {fileID: 21300000, guid: 25a23e81250575b4da50521eeb1f76b8, type: 3}
     walk1: {fileID: 21300022, guid: 25a23e81250575b4da50521eeb1f76b8, type: 3}

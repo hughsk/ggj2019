@@ -30,19 +30,22 @@ public class HUD : MonoBehaviour
         StartCoroutine("LoseTime");
         Time.timeScale = 1;
 
-        pauseObjects = GameObject.FindGameObjectsWithTag("ShowOnPause");        
+        pauseObjects = GameObject.FindGameObjectsWithTag("ShowOnPause");
         scoreObjects = GameObject.FindGameObjectsWithTag("ShowOnFinish");
 
         hideScore();
         hidePaused();
     }
 
+    public void BoostScore (float boost) {
+      score = score + boost;
+      SetScoreText();
+      scoreBar.value = score;
+    }
+
     void Update()
     {
-        countdown.text = ("Time: " + timeLeft);
-        score = score + pointValue;
-        SetScoreText();
-        scoreBar.value = score;
+        countdown.text = ("Time: " + Mathf.Max(timeLeft, 0));
 
         if (timeLeft == 0)
         {

@@ -15,6 +15,7 @@ public class AvocadoController : MonoBehaviour {
   [SerializeField] CSVReader reader;
   [SerializeField] float animPeriod = 0.5f;
   [SerializeField] ScoreFloater floaterPrefab;
+  [SerializeField] HUD hud;
 
   float animCounter = 0f;
   int walkIndex = 0;
@@ -53,6 +54,8 @@ public class AvocadoController : MonoBehaviour {
           if (targets.targets[i].Smash(particles, bubble, reader)) {
             var sound = targets.targets[i].smashSound;
             if (sound != null) PlaySound(sound);
+
+            hud.BoostScore(targets.targets[i].pointValue);
 
             var xform = targets.targets[i].transform;
             var floater = Instantiate<ScoreFloater>(floaterPrefab);

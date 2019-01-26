@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657952, g: 0.49641502, b: 0.57481825, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465791, g: 0.49641448, b: 0.5748173, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -721,6 +721,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 704104541}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &757829239 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114679502129114572, guid: 991c6db7cb206ee4cb9c07d9fe8acc4b,
+    type: 2}
+  m_PrefabInternal: {fileID: 828740543}
+  m_Script: {fileID: 11500000, guid: a65a4f3ab767c4a4c960d9b38b88f814, type: 3}
 --- !u!1001 &764987144
 Prefab:
   m_ObjectHideFlags: 0
@@ -943,7 +949,7 @@ Prefab:
     - target: {fileID: 224352269751801264, guid: 991c6db7cb206ee4cb9c07d9fe8acc4b,
         type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 224352269751801264, guid: 991c6db7cb206ee4cb9c07d9fe8acc4b,
         type: 2}
@@ -953,7 +959,7 @@ Prefab:
     - target: {fileID: 224352269751801264, guid: 991c6db7cb206ee4cb9c07d9fe8acc4b,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 224352269751801264, guid: 991c6db7cb206ee4cb9c07d9fe8acc4b,
         type: 2}
@@ -963,7 +969,7 @@ Prefab:
     - target: {fileID: 224352269751801264, guid: 991c6db7cb206ee4cb9c07d9fe8acc4b,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 492.46002
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224352269751801264, guid: 991c6db7cb206ee4cb9c07d9fe8acc4b,
         type: 2}
@@ -1108,7 +1114,7 @@ Prefab:
     - target: {fileID: 224352269751801264, guid: 991c6db7cb206ee4cb9c07d9fe8acc4b,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: -1144.92
+      value: 1840
       objectReference: {fileID: 0}
     - target: {fileID: 224352269751801264, guid: 991c6db7cb206ee4cb9c07d9fe8acc4b,
         type: 2}
@@ -1119,6 +1125,11 @@ Prefab:
         type: 2}
       propertyPath: timeLeft
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 114985343807570984, guid: 991c6db7cb206ee4cb9c07d9fe8acc4b,
+        type: 2}
+      propertyPath: m_Text
+      value: Testing 123
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 991c6db7cb206ee4cb9c07d9fe8acc4b, type: 2}
@@ -1182,6 +1193,11 @@ Prefab:
       propertyPath: reader
       value: 
       objectReference: {fileID: 114599818}
+    - target: {fileID: 114591719029688634, guid: e22a8106ff1d63d43ba90424319d2f8b,
+        type: 2}
+      propertyPath: hud
+      value: 
+      objectReference: {fileID: 757829239}
     - target: {fileID: 114400549397048740, guid: e22a8106ff1d63d43ba90424319d2f8b,
         type: 2}
       propertyPath: m_havePropertiesChanged
@@ -1191,44 +1207,6 @@ Prefab:
         type: 2}
       propertyPath: m_isInputParsingRequired
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114400549397048740, guid: e22a8106ff1d63d43ba90424319d2f8b,
-        type: 2}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 2ab51ed36c98f0540bf56a55b9a22f1e,
-        type: 2}
-    - target: {fileID: 114400549397048740, guid: e22a8106ff1d63d43ba90424319d2f8b,
-        type: 2}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 21456641650508362, guid: 2ab51ed36c98f0540bf56a55b9a22f1e,
-        type: 2}
-    - target: {fileID: 23496482056596638, guid: e22a8106ff1d63d43ba90424319d2f8b,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 21456641650508362, guid: 2ab51ed36c98f0540bf56a55b9a22f1e,
-        type: 2}
-    - target: {fileID: 114400549397048740, guid: e22a8106ff1d63d43ba90424319d2f8b,
-        type: 2}
-      propertyPath: m_fontColor.r
-      value: 0.26415092
-      objectReference: {fileID: 0}
-    - target: {fileID: 114400549397048740, guid: e22a8106ff1d63d43ba90424319d2f8b,
-        type: 2}
-      propertyPath: m_fontColor.g
-      value: 0.26415092
-      objectReference: {fileID: 0}
-    - target: {fileID: 114400549397048740, guid: e22a8106ff1d63d43ba90424319d2f8b,
-        type: 2}
-      propertyPath: m_fontColor.b
-      value: 0.26415092
-      objectReference: {fileID: 0}
-    - target: {fileID: 114400549397048740, guid: e22a8106ff1d63d43ba90424319d2f8b,
-        type: 2}
-      propertyPath: m_fontColor32.rgba
-      value: 4282598211
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e22a8106ff1d63d43ba90424319d2f8b, type: 2}
