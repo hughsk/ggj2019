@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e653a8073e1e943a5ed70d6e6b3871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smashSound: {fileID: 0}
+  smashSound: {fileID: 8300000, guid: 89fff3a0719212748bd32b3c367490f3, type: 3}
   dialogueKey: doubleBass
   pointValue: 200
 --- !u!136 &136700444729103038
