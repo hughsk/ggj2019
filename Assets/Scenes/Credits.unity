@@ -548,9 +548,9 @@ RectTransform:
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 362, y: 193}
-  m_SizeDelta: {x: 671, y: 328.5}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 363.8, y: -0.0000038146973}
+  m_SizeDelta: {x: 671, y: -200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &972110704
 MonoBehaviour:
@@ -584,8 +584,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Deborah Ho - Artist\r\n\nHugh S. Kennedy - Gameplay Programmer\r\n\nKai
-    Lynk - Concept Contributor\r\n\nLuke Ashley - Composer, \"Millenial Roadshow\"\r\n\nMatthew
+  m_Text: "Deborah Ho - Artist\r\n\nHugh Kennedy - Gameplay Programmer\r\n\nKai Lynk
+    - Concept Contributor\r\n\nLuke Ashley - Composer, \"Millenial Roadshow\"\r\n\nMatthew
     Deline - Producer/Designer\r\n\nRune Finlayson - UX Programmer"
 --- !u!222 &972110705
 CanvasRenderer:
