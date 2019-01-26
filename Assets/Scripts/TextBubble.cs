@@ -22,7 +22,7 @@ public class TextBubble : MonoBehaviour {
   }
 
   public IEnumerator WriteText (string text) {
-    if (!writing) {
+    if (!writing || text.Length < 1) {
       writing = true;
 
       for (int i = 1; i <= text.Length; i++) {

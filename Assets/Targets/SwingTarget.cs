@@ -13,8 +13,15 @@ public class SwingTarget : MonoBehaviour {
     smashed = true;
 
     if (dialogueKey != null && dialogueKey.Length > 0) {
-      var words = reader.GetKey(dialogueKey);
-      bubble.StartCoroutine(bubble.WriteText(words));
+      var words = "";
+
+      try {
+        words = reader.GetKey(dialogueKey);
+      } catch (System.Exception e) {
+
+      } finally {
+        bubble.StartCoroutine(bubble.WriteText(words));
+      }
     }
 
     particleSystem = Instantiate<ParticleSystem>(system);

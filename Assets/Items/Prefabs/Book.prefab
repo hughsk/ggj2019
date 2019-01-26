@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smashSound: {fileID: 8300000, guid: 0847a7f8849c6024bae84722e82371ea, type: 3}
-  dialogueKey: 
+  dialogueKey: book
 --- !u!136 &136706784475362814
 CapsuleCollider:
   m_ObjectHideFlags: 1

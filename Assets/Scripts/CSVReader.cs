@@ -25,16 +25,26 @@ public class CSVReader : MonoBehaviour
             Dialogue d = new Dialogue();
 
             if (row.Length > 1 && row[1] != "") {
-                int.TryParse(row[0], out d.id);
-                d.name = row[1];
-                d.dialogue = row[2];
-                dialogue.Add(d.name, d);
+                d.name = row[0];
+                d.dialogue = new List<string>();
+                for (int j = 1; j < row.Length; j++) {
+                  var text = row[j];
+                  if (text.Length > 0) {
+                    d.dialogue.Add(text);
+                  }
+                }
+                if (d.dialogue.Count > 0) {
+                  dialogue.Add(d.name, d);
+                }
             }
         }
     }
 
     public string GetKey (string key) {
-      return dialogue[key].dialogue;
+      var entries = dialogue[key].dialogue;
+      return entries[
+        Random.Range(0, entries.Count)
+      ];
     }
 
 }

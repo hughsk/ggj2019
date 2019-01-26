@@ -1,5 +1,7 @@
-﻿public struct Dialogue {
+﻿using System.Collections.Generic;
+
+public struct Dialogue {
   public int id;
   public string name;
-  public string dialogue;
+  public List<string> dialogue;
 }

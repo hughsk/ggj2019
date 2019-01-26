@@ -82,6 +82,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e653a8073e1e943a5ed70d6e6b3871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  smashSound: {fileID: 0}
+  dialogueKey: vintageSuitcase
 --- !u!136 &136706784475362814
 CapsuleCollider:
   m_ObjectHideFlags: 1
