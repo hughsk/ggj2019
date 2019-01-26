@@ -10,6 +10,10 @@ public class AvocadoController : MonoBehaviour {
   [SerializeField] [Range(0f, 5f)] float swingRadius = 1.5f;
   [SerializeField] AudioClip[] swingSounds;
   [SerializeField] SpriteRenderer sprite;
+  [SerializeField] float animPeriod = 0.5f;
+
+  float animCounter = 0f;
+  int walkIndex = 0;
 
   Rigidbody rb;
   Transform xform;
@@ -32,6 +36,23 @@ public class AvocadoController : MonoBehaviour {
   }
 
   void Update () {
+    var speed = rb.velocity.magnitude;
+    if (speed > 0.01f) {
+      animCounter += Time.deltaTime * Mathf.Min(1f, speed * 0.25f);
+      while (animCounter > animPeriod) {
+        animCounter -= animPeriod;
+        walkIndex = (walkIndex + 1) % 3;
+
+        switch (walkIndex) {
+          case 0: sprite.sprite = currentAnimation.standing; break;
+          case 1: sprite.sprite = currentAnimation.walk1; break;
+          case 2: sprite.sprite = currentAnimation.walk2; break;
+        }
+      }
+    } else {
+      sprite.sprite = currentAnimation.standing;
+    }
+
     if (Input.GetButtonUp("Jump")) {
       var targets = GetSwingTargets();
 
@@ -74,7 +95,7 @@ public class AvocadoController : MonoBehaviour {
       swingRadius,
       colliders,
       swingMask,
-      QueryTriggerInteraction.Ignore
+      QueryTriggerInteraction.Collide
     );
 
     for (int j = 0; j < limit; j++) {
@@ -95,7 +116,7 @@ public class AvocadoController : MonoBehaviour {
   }
 
   void FixedUpdate () {
-    var relativeFrame = 20f * GetCameraRelative(
+    var relativeFrame = 30f * GetCameraRelative(
       Input.GetAxis("Horizontal"),
       Input.GetAxis("Vertical")
     );

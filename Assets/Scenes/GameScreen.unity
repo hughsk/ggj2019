@@ -270,8 +270,8 @@ MonoBehaviour:
   player: {fileID: 1992372930}
   groupSize: 30
   items:
-  - {fileID: 4479299896243256, guid: 36585726ea8767840a418d92f918c1ab, type: 2}
-  - {fileID: 4479299896243256, guid: 36585726ea8767840a418d92f918c1ab, type: 2}
+  - {fileID: 4018986554346354, guid: babd4d62b101a07429c2ed8af3099f88, type: 2}
+  - {fileID: 4018986554346354, guid: ac5d62c14efa58840a3ebad4c63f81d8, type: 2}
 --- !u!4 &200958349
 Transform:
   m_ObjectHideFlags: 0
@@ -954,10 +954,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5d0d770dbd9b350418ff480718845671, type: 3}
   - {fileID: 8300000, guid: b66f2a6158b4211429878fb2e67bd30b, type: 3}
   sprite: {fileID: 909876963}
+  animPeriod: 0.1
   animIdle:
-    standing: {fileID: 0}
-    walk1: {fileID: 0}
-    walk2: {fileID: 0}
+    standing: {fileID: 21300000, guid: 25a23e81250575b4da50521eeb1f76b8, type: 3}
+    walk1: {fileID: 21300022, guid: 25a23e81250575b4da50521eeb1f76b8, type: 3}
+    walk2: {fileID: 21300020, guid: 25a23e81250575b4da50521eeb1f76b8, type: 3}
 --- !u!82 &1992372931
 AudioSource:
   m_ObjectHideFlags: 0
