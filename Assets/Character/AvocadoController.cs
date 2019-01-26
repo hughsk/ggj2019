@@ -10,6 +10,7 @@ public class AvocadoController : MonoBehaviour {
   [SerializeField] [Range(0f, 5f)] float swingRadius = 1.5f;
   [SerializeField] AudioClip[] swingSounds;
   [SerializeField] SpriteRenderer sprite;
+  [SerializeField] ParticleSystem particles;
   [SerializeField] float animPeriod = 0.5f;
 
   float animCounter = 0f;
@@ -46,7 +47,7 @@ public class AvocadoController : MonoBehaviour {
 
       for (int i = 0; i < targets.targetCount; i++) {
         if (targets.inRanges[i]) {
-          targets.targets[i].Smash();
+          targets.targets[i].Smash(particles);
         }
       }
     }

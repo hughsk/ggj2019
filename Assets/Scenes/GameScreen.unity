@@ -275,6 +275,8 @@ MonoBehaviour:
   - {fileID: 4446650549657828, guid: 7f8bdfab58739424cbc392016d2374d8, type: 2}
   - {fileID: 4018986554346354, guid: 941ebaee2abdfa44bb2d0d57954eac80, type: 2}
   - {fileID: 4217894209159336, guid: 3b1216f267a468b4c8699f6f8dd40101, type: 2}
+  - {fileID: 4018986554346354, guid: 41589d70f293f884fad3eec669a84cee, type: 2}
+  - {fileID: 4018986554346354, guid: 6d90bee0c1b6b984689072946c5a2df8, type: 2}
 --- !u!4 &200958349
 Transform:
   m_ObjectHideFlags: 0
@@ -1154,6 +1156,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5d0d770dbd9b350418ff480718845671, type: 3}
   - {fileID: 8300000, guid: b66f2a6158b4211429878fb2e67bd30b, type: 3}
   sprite: {fileID: 909876963}
+  particles: {fileID: 198539205911503626, guid: 8d94b019bd876784894f0efcbcf9f894,
+    type: 2}
   animPeriod: 0.1
   animIdle:
     standing: {fileID: 21300000, guid: 25a23e81250575b4da50521eeb1f76b8, type: 3}
