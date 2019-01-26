@@ -11,6 +11,8 @@ public class AvocadoController : MonoBehaviour {
   [SerializeField] AudioClip[] swingSounds;
   [SerializeField] SpriteRenderer sprite;
   [SerializeField] ParticleSystem particles;
+  [SerializeField] TextBubble bubble;
+  [SerializeField] CSVReader reader;
   [SerializeField] float animPeriod = 0.5f;
 
   float animCounter = 0f;
@@ -47,7 +49,7 @@ public class AvocadoController : MonoBehaviour {
 
       for (int i = 0; i < targets.targetCount; i++) {
         if (targets.inRanges[i]) {
-          targets.targets[i].Smash(particles);
+          targets.targets[i].Smash(particles, bubble, reader);
         }
       }
     }
@@ -117,7 +119,7 @@ public class AvocadoController : MonoBehaviour {
     for (int j = 0; j < limit; j++) {
       var origin = colliders[j].transform.position;
 
-      if (!(inRange[j] = (Mathf.Sign((origin - swingOrigin).z) == Mathf.Sign(swingDirection)))) continue;
+      // if (!(inRange[j] = (Mathf.Sign((origin - swingOrigin).z) == Mathf.Sign(swingDirection)))) continue;
 
       targets[j] = colliders[j].GetComponent<SwingTarget>();
       if (!(inRange[j] = targets[j] != null)) continue;

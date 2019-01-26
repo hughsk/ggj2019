@@ -2,12 +2,21 @@ using UnityEngine;
 using System.Collections;
 
 public class SwingTarget : MonoBehaviour {
+  [SerializeField] AudioClip smashSound;
+  [SerializeField] string dialogueKey;
+
   ParticleSystem particleSystem;
   bool smashed = false;
 
-  public void Smash (ParticleSystem system) {
+  public void Smash (ParticleSystem system, TextBubble bubble, CSVReader reader) {
     if (smashed) return;
     smashed = true;
+
+    if (dialogueKey != null && dialogueKey.Length > 0) {
+      var words = reader.GetKey(dialogueKey);
+      bubble.StartCoroutine(bubble.WriteText(words));
+    }
+
     particleSystem = Instantiate<ParticleSystem>(system);
     particleSystem.transform.position = transform.position + Vector3.up;
     StartCoroutine(ExitRoutine());

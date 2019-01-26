@@ -11,51 +11,30 @@ public class CSVReader : MonoBehaviour
     private string currentText;
     public string fullText;
 
-    List<Dialogue> dialogue = new List<Dialogue>();
+    Dictionary<string, Dialogue> dialogue = new Dictionary<string, Dialogue>();
 
-    void Start()
+    void OnEnable()
     {
         TextAsset displayText = Resources.Load<TextAsset>("itemdialogue");
 
         string[] data = displayText.text.Split('\n');
-        //Debug.Log(data.Length);
         for (int i = 2; i < data.Length; i++)
         {
             string[] row = data[i].Split(',');
 
             Dialogue d = new Dialogue();
-            int.TryParse(row[0], out d.id);
 
-            if (row[1] != "")
-            {
+            if (row.Length > 1 && row[1] != "") {
+                int.TryParse(row[0], out d.id);
                 d.name = row[1];
                 d.dialogue = row[2];
+                dialogue.Add(d.name, d);
             }
-            dialogue.Add(d);
-            fullText = d.dialogue;
-            //Debug.Log(data[2][2]);            
-        }
-
-        //foreach (Dialogue d in dialogue)
-        //{
-        //    currentText = data[2][2].ToString();
-        //}
-
-        //StartCoroutine("ShowText");
-    }
-
-    void Update()
-    {
-
-    }
-
-    IEnumerator ShowText()
-    {
-        for (int i = 0; i < fullText.Length; i++)
-        {
-            currentText = fullText.Substring(0, i);
-            this.GetComponent<Text>().text = currentText;
-            yield return new WaitForSeconds(delay);
         }
     }
+
+    public string GetKey (string key) {
+      return dialogue[key].dialogue;
+    }
+
 }
