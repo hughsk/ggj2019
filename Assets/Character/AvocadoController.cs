@@ -9,6 +9,7 @@ public class AvocadoController : MonoBehaviour {
   [SerializeField] LayerMask swingMask;
   [SerializeField] [Range(0f, 5f)] float swingRadius = 1.5f;
   [SerializeField] AudioClip[] swingSounds;
+  [SerializeField] SpriteRenderer sprite;
 
   Rigidbody rb;
   Transform xform;
@@ -90,6 +91,7 @@ public class AvocadoController : MonoBehaviour {
 
     if (Mathf.Abs(relativeFrame.z) > 0.001f) {
       swingDirection = Mathf.Sign(relativeFrame.z);
+      sprite.flipX = relativeFrame.z < 0f;
     }
 
     rb.AddForce(relativeFrame, ForceMode.Acceleration);
