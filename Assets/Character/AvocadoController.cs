@@ -1,35 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(AudioSource))]
 public class AvocadoController : MonoBehaviour {
-  [SerializeField] Transform cameraTransform;
-  [SerializeField] LayerMask swingMask;
-  [SerializeField] [Range(0f, 5f)] float swingRadius = 1.5f;
-  [SerializeField] AudioClip[] swingSounds;
-  [SerializeField] SpriteRenderer sprite;
-  [SerializeField] ParticleSystem particles;
-  [SerializeField] TextBubble bubble;
-  [SerializeField] CSVReader reader;
-  [SerializeField] float animPeriod = 0.5f;
-  [SerializeField] ScoreFloater floaterPrefab;
-  [SerializeField] HUD hud;
+    [SerializeField] Transform cameraTransform;
+    [SerializeField] LayerMask swingMask;
+    [SerializeField] [Range(0f, 5f)] float swingRadius = 1.5f;
+    [SerializeField] AudioClip[] swingSounds;
+    [SerializeField] SpriteRenderer sprite;
+    [SerializeField] ParticleSystem particles;
+    [SerializeField] TextBubble bubble;
+    [SerializeField] CSVReader reader;
+    [SerializeField] float animPeriod = 0.5f;
+    [SerializeField] ScoreFloater floaterPrefab;
+    [SerializeField] HUD hud;
 
-  float animCounter = 0f;
-  int walkIndex = 0;
+    float animCounter = 0f;
+    int walkIndex = 0;
 
-  Rigidbody rb;
-  Transform xform;
-  AudioSource source;
+    Rigidbody rb;
+    Transform xform;
+    AudioSource source;
 
-  Vector3 forward;
-  Vector3 right;
-  AvoAnimation currentAnimation;
+    Vector3 forward;
+    Vector3 right;
+    AvoAnimation currentAnimation;
 
-  // Left (-1) or right (+1)?
-  float swingDirection = 0f;
+    // Left (-1) or right (+1)?
+    float swingDirection = 0f;
+
+    GameObject[] joeHockey;
+    public int joeFactor;
 
   void OnEnable () {
     currentAnimation = animIdle;
@@ -38,6 +42,7 @@ public class AvocadoController : MonoBehaviour {
     rb = GetComponent<Rigidbody>();
     xform = GetComponent<Transform>();
     source = GetComponent<AudioSource>();
+    joeHockey = GameObject.FindGameObjectsWithTag("ShowTheJoe");
   }
 
   bool isSwinging = false;
@@ -45,6 +50,7 @@ public class AvocadoController : MonoBehaviour {
   void Update () {
     if (!isSwinging && Input.GetButtonUp("Jump")) {
       var targets = GetSwingTargets();
+      joeFactor = Random.Range(1,150);
 
       PlaySound(swingSounds);
       StartCoroutine(SwingAnimation());
@@ -63,6 +69,10 @@ public class AvocadoController : MonoBehaviour {
             floater.SetValue(targets.targets[i].pointValue);
           }
         }
+      }
+      if (joeFactor == 69)
+      {
+        showJoe();
       }
     }
 
@@ -178,4 +188,12 @@ public class AvocadoController : MonoBehaviour {
     int random = Mathf.FloorToInt(Random.Range(0f, sounds.Length - 1f));
     source.PlayOneShot(sounds[random]);
   }
+
+    public void showJoe()
+    {
+        foreach (GameObject g in joeHockey)
+        {
+            g.SetActive(true);
+        }
+    }
 }
