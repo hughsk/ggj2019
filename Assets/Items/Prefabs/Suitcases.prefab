@@ -84,7 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smashSound: {fileID: 8300000, guid: f388d0574f91c3846b6ff0df8713883b, type: 3}
   dialogueKey: vintageSuitcase
-  pointValue: 80
+  pointValue: 800
 --- !u!136 &136706784475362814
 CapsuleCollider:
   m_ObjectHideFlags: 1

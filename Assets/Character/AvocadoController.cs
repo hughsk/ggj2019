@@ -52,9 +52,9 @@ public class AvocadoController : MonoBehaviour {
 
     if (!hud.hasFinished && !isSwinging && swingPressed) {
       var targets = GetSwingTargets();
-      joeFactor = Random.Range(1,150);
+      joeFactor = Random.Range(1, 1000);
 
-      PlaySound(swingSounds);
+            PlaySound(swingSounds);
       StartCoroutine(SwingAnimation());
 
       for (int i = 0; i < targets.targetCount; i++) {

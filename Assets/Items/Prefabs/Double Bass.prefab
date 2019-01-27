@@ -84,7 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smashSound: {fileID: 8300000, guid: 89fff3a0719212748bd32b3c367490f3, type: 3}
   dialogueKey: doubleBass
-  pointValue: 200
+  pointValue: 2000
 --- !u!136 &136700444729103038
 CapsuleCollider:
   m_ObjectHideFlags: 1

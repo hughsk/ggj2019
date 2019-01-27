@@ -84,7 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smashSound: {fileID: 8300000, guid: fc76fcc2e74e63f4c8b55328a760439f, type: 3}
   dialogueKey: narniaWardrobe
-  pointValue: 400
+  pointValue: 4000
 --- !u!136 &136706784475362814
 CapsuleCollider:
   m_ObjectHideFlags: 1

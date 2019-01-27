@@ -96,7 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smashSound: {fileID: 8300000, guid: 0d2e2b82d3dbc8c49940c177a7545e56, type: 3}
   dialogueKey: diningSet
-  pointValue: 1200
+  pointValue: 12000
 --- !u!212 &212188819042890772
 SpriteRenderer:
   m_ObjectHideFlags: 1

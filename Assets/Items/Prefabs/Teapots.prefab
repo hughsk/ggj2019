@@ -84,7 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smashSound: {fileID: 8300000, guid: 39411f70605474d47bfcd0186cde0593, type: 3}
   dialogueKey: teapotSet
-  pointValue: 150
+  pointValue: 1500
 --- !u!136 &136706784475362814
 CapsuleCollider:
   m_ObjectHideFlags: 1

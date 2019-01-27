@@ -84,7 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smashSound: {fileID: 8300000, guid: c7c45be0b14e43f4f8d56e0a5bd8fe40, type: 3}
   dialogueKey: gramophone
-  pointValue: 300
+  pointValue: 3000
 --- !u!136 &136585308299137570
 CapsuleCollider:
   m_ObjectHideFlags: 1

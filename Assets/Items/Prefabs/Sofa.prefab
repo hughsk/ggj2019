@@ -96,7 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smashSound: {fileID: 8300000, guid: 405aa9f009bd33a4595dd93367dfca34, type: 3}
   dialogueKey: couch
-  pointValue: 40
+  pointValue: 400
 --- !u!212 &212188819042890772
 SpriteRenderer:
   m_ObjectHideFlags: 1
