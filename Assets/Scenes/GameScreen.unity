@@ -2013,6 +2013,11 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114591719029688634, guid: e22a8106ff1d63d43ba90424319d2f8b,
+        type: 2}
+      propertyPath: joeFactor
+      value: 69
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e22a8106ff1d63d43ba90424319d2f8b, type: 2}
   m_IsPrefabAsset: 0
