@@ -61,7 +61,7 @@ public class SpawnGroups : MonoBehaviour {
     var zMax = +3f;
     var zMin = -3f;
 
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 30; i++) {
       var prefab = items[Random.Range(0, items.Length)];
       var position = new Vector3(
         Random.Range(xMin, xMax), 0f, Random.Range(zMin, zMax)

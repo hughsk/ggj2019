@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Threading;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class HUD : MonoBehaviour
 {
-    public Text scoreText;
+    public TextMeshProUGUI scoreText;
     public Text finalScore;
     public float score;
     public float minScore = 0;
@@ -15,7 +16,7 @@ public class HUD : MonoBehaviour
     public Slider scoreBar;
     public float pointValue;
     public int timeLeft;
-    public Text countdown;
+    public TextMeshProUGUI countdown;
     private string scoreDesc;
     bool keepTiming;
 
@@ -69,7 +70,7 @@ public class HUD : MonoBehaviour
 
     void SetScoreText()
     {
-       scoreText.text = "$" + score.ToString("f0");
+       scoreText.text = "$" + score.ToString("f0") + " smashed";
     }
 
     public void showScore()
