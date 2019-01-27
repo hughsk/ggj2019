@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465791, g: 0.49641448, b: 0.5748173, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657952, g: 0.49641502, b: 0.57481825, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1644,6 +1644,7 @@ MonoBehaviour:
   pointValue: 0
   timeLeft: 60
   countdown: {fileID: 335352680}
+  hasFinished: 0
   MenuName: TitleScreen
   CreditsName: Credits
 --- !u!1 &762697145
@@ -1664,7 +1665,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &762697146
 RectTransform:
   m_ObjectHideFlags: 0

@@ -84,7 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smashSound: {fileID: 8300000, guid: ba7b74e7f89d49345beac06622877e3e, type: 3}
   dialogueKey: grandfatherClock
-  pointValue: 180
+  pointValue: 1800
 --- !u!136 &136679394010918986
 CapsuleCollider:
   m_ObjectHideFlags: 1
