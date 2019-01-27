@@ -48,7 +48,9 @@ public class AvocadoController : MonoBehaviour {
   bool isSwinging = false;
 
   void Update () {
-    if (!hud.hasFinished && !isSwinging && Input.GetButtonUp("Jump")) {
+    var swingPressed = Input.GetButtonUp("Jump") || Input.GetButtonUp("Submit") || Input.GetButton("Fire1");
+
+    if (!hud.hasFinished && !isSwinging && swingPressed) {
       var targets = GetSwingTargets();
       joeFactor = Random.Range(1,150);
 
