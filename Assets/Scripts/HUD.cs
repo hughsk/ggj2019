@@ -19,6 +19,7 @@ public class HUD : MonoBehaviour
     public TextMeshProUGUI countdown;
     private string scoreDesc;
     bool keepTiming;
+    public bool hasFinished = false;
 
     public string MenuName;
     public string CreditsName;
@@ -75,6 +76,8 @@ public class HUD : MonoBehaviour
 
     public void showScore()
     {
+        hasFinished = true;
+
         foreach (GameObject g in scoreObjects)
         {
             g.SetActive(true);

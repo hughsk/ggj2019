@@ -48,7 +48,7 @@ public class AvocadoController : MonoBehaviour {
   bool isSwinging = false;
 
   void Update () {
-    if (!isSwinging && Input.GetButtonUp("Jump")) {
+    if (!hud.hasFinished && !isSwinging && Input.GetButtonUp("Jump")) {
       var targets = GetSwingTargets();
       joeFactor = Random.Range(1,150);
 
@@ -156,6 +156,8 @@ public class AvocadoController : MonoBehaviour {
   }
 
   void FixedUpdate () {
+    if (hud.hasFinished) return;
+
     var relativeFrame = 30f * GetCameraRelative(
       Input.GetAxis("Horizontal"),
       Input.GetAxis("Vertical")
