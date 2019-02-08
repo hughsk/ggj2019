@@ -3,25 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnGroups : MonoBehaviour {
-  [SerializeField] AvocadoController player;
+  [SerializeField] AvocadoController[] player;
+  [SerializeField] Transform[] blockers;
   [SerializeField] float groupSize = 5f;
   [SerializeField] Transform[] items;
 
-  Transform playerTransform;
+  Transform[] playerTransform;
   Transform cameraTransform;
   Vector3 playerDiff;
+  Vector3[] blockerDiffs;
   Dictionary<int, List<Transform>> groups = new Dictionary<int, List<Transform>>();
 
   void OnEnable () {
     cameraTransform = Camera.main.transform;
-    playerTransform = player.transform;
-    playerDiff = cameraTransform.position - playerTransform.position;
+    playerTransform = new List<AvocadoController>(player)
+      .ConvertAll(player => player.transform)
+      .ToArray();
+    playerDiff = cameraTransform.position - playerTransform[0].position;
+    blockerDiffs = new List<Transform>(blockers)
+      .ConvertAll(blocker => blocker.position - playerTransform[0].position)
+      .ToArray();
   }
 
   List<int> flaggedForDeletion = new List<int>();
 
   void Update () {
-    int groupId = Mathf.RoundToInt(playerTransform.position.x / groupSize);
+    int groupId = Mathf.RoundToInt(playerTransform[0].position.x / groupSize);
 
     for (int i = groupId - 1; i <= groupId + 1; i++) {
       if (!groups.ContainsKey(i)) {
@@ -45,13 +52,26 @@ public class SpawnGroups : MonoBehaviour {
       groups.Remove(flaggedForDeletion[i]);
     }
 
-    var playerPosition = playerTransform.position;
     var cameraPosition = cameraTransform.position;
+    var playerPositionAverage = 0f;
+
+    for (int i = 0; i < playerTransform.Length; i++) {
+      playerPositionAverage += playerTransform[i].position.x / (float)playerTransform.Length;
+    }
     cameraTransform.position = new Vector3(
-      playerPosition.x + playerDiff.x,
+      playerPositionAverage + playerDiff.x,
       cameraPosition.y,
       cameraPosition.z
     );
+
+    for (int i = 0; i < blockers.Length; i++) {
+      var position = blockers[i].position;
+      blockers[i].position = new Vector3(
+        playerPositionAverage + blockerDiffs[i].x,
+        position.y,
+        position.z
+      );
+    }
   }
 
   List<Transform> CreateGroup (int index) {

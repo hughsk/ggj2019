@@ -6,6 +6,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(AudioSource))]
 public class AvocadoController : MonoBehaviour {
+    [SerializeField] PlayerNumber playerNumber;
     [SerializeField] Transform cameraTransform;
     [SerializeField] LayerMask swingMask;
     [SerializeField] [Range(0f, 5f)] float swingRadius = 1.5f;
@@ -17,6 +18,12 @@ public class AvocadoController : MonoBehaviour {
     [SerializeField] float animPeriod = 0.5f;
     [SerializeField] ScoreFloater floaterPrefab;
     [SerializeField] HUD hud;
+
+    [System.Serializable]
+    enum PlayerNumber {
+      Player1,
+      Player2,
+    };
 
     float animCounter = 0f;
     int walkIndex = 0;
@@ -48,7 +55,9 @@ public class AvocadoController : MonoBehaviour {
   bool isSwinging = false;
 
   void Update () {
-    var swingPressed = Input.GetButtonUp("Jump") || Input.GetButtonUp("Submit") || Input.GetButton("Fire1");
+    var swingPressed = playerNumber == PlayerNumber.Player1
+      ? Input.GetButtonUp("Jump") || Input.GetButtonUp("Submit") || Input.GetButton("Fire1")
+      : Input.GetButtonUp("Fire2");
 
     if (!hud.hasFinished && !isSwinging && swingPressed) {
       var targets = GetSwingTargets();
@@ -161,8 +170,8 @@ public class AvocadoController : MonoBehaviour {
     if (hud.hasFinished) return;
 
     var relativeFrame = 30f * GetCameraRelative(
-      Input.GetAxis("Horizontal"),
-      Input.GetAxis("Vertical")
+      playerNumber == PlayerNumber.Player1 ? Input.GetAxis("Horizontal") : Input.GetAxis("Horizontal P2"),
+      playerNumber == PlayerNumber.Player1 ? Input.GetAxis("Vertical") : Input.GetAxis("Vertical P2")
     );
 
     if (Mathf.Abs(relativeFrame.z) > 0.001f) {
