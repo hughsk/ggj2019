@@ -20,7 +20,7 @@ public class AvocadoController : MonoBehaviour {
     [SerializeField] HUD hud;
 
     [System.Serializable]
-    enum PlayerNumber {
+    public enum PlayerNumber {
       Player1,
       Player2,
     };
@@ -55,9 +55,31 @@ public class AvocadoController : MonoBehaviour {
   bool isSwinging = false;
 
   void Update () {
+    // var swingPressed = playerNumber == PlayerNumber.Player1
+    //   ? Input.GetButtonUp("Jump") || Input.GetButtonUp("Submit") || Input.GetButton("Fire1")
+    //   : Input.GetButtonUp("Fire2");
+
+    var swingPressedP1 = (
+      Input.GetKeyUp(KeyCode.Joystick1Button1) ||
+      Input.GetKeyUp(KeyCode.Joystick1Button2) ||
+      Input.GetKeyUp(KeyCode.Joystick1Button3) ||
+      Input.GetKeyUp(KeyCode.Joystick1Button4) ||
+      Input.GetKeyUp(KeyCode.Return) ||
+      Input.GetKeyUp(KeyCode.Space) ||
+      Input.GetKeyUp(KeyCode.E)
+    );
+
+    var swingPressedP2 = (
+      Input.GetKeyUp(KeyCode.Joystick2Button1) ||
+      Input.GetKeyUp(KeyCode.Joystick2Button2) ||
+      Input.GetKeyUp(KeyCode.Joystick2Button3) ||
+      Input.GetKeyUp(KeyCode.Joystick2Button4) ||
+      Input.GetKeyUp(KeyCode.O)
+    );
+
     var swingPressed = playerNumber == PlayerNumber.Player1
-      ? Input.GetButtonUp("Jump") || Input.GetButtonUp("Submit") || Input.GetButton("Fire1")
-      : Input.GetButtonUp("Fire2");
+      ? swingPressedP1
+      : swingPressedP2;
 
     if (!hud.hasFinished && !isSwinging && swingPressed) {
       var targets = GetSwingTargets();
@@ -72,7 +94,7 @@ public class AvocadoController : MonoBehaviour {
             var sound = targets.targets[i].smashSound;
             if (sound != null) PlaySound(sound);
 
-            hud.BoostScore(targets.targets[i].pointValue);
+            hud.BoostScore(playerNumber, targets.targets[i].pointValue);
 
             var xform = targets.targets[i].transform;
             var floater = Instantiate<ScoreFloater>(floaterPrefab);

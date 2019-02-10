@@ -5,10 +5,13 @@ using UnityEngine.UI;
 using System.Threading;
 using UnityEngine.SceneManagement;
 using TMPro;
+using PlayerNumber = AvocadoController.PlayerNumber;
 
 public class HUD : MonoBehaviour
 {
-    public TextMeshProUGUI scoreText;
+    [UnityEngine.Serialization.FormerlySerializedAs("scoreText")]
+    public TextMeshProUGUI scoreText1;
+    public TextMeshProUGUI scoreText2;
     public Text finalScore;
     public float score;
     public float minScore = 0;
@@ -39,9 +42,14 @@ public class HUD : MonoBehaviour
         hidePaused();
     }
 
-    public void BoostScore (float boost) {
+    public void BoostScore (PlayerNumber player, float boost) {
       score = score + boost;
-      SetScoreText();
+
+      switch (player) {
+        case PlayerNumber.Player1: SetScoreText(scoreText1); break;
+        case PlayerNumber.Player2: SetScoreText(scoreText2); break;
+      }
+
       scoreBar.value = score;
     }
 
@@ -54,8 +62,13 @@ public class HUD : MonoBehaviour
             showScore();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
+        if (
+          Input.GetKeyDown(KeyCode.Escape) ||
+          Input.GetKeyDown(KeyCode.Joystick1Button8) ||
+          Input.GetKeyDown(KeyCode.Joystick1Button9) ||
+          Input.GetKeyDown(KeyCode.Joystick2Button8) ||
+          Input.GetKeyDown(KeyCode.Joystick2Button9)
+        ) {
             if (Time.timeScale == 1)
             {
                 Time.timeScale = 0;
@@ -69,9 +82,9 @@ public class HUD : MonoBehaviour
         }
     }
 
-    void SetScoreText()
+    void SetScoreText(TextMeshProUGUI textMesh)
     {
-       scoreText.text = "$" + score.ToString("f0") + " smashed";
+       textMesh.text = "$" + score.ToString("f0") + " smashed";
     }
 
     public void showScore()
