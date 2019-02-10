@@ -19,6 +19,8 @@ public class AvocadoController : MonoBehaviour {
     [SerializeField] ScoreFloater floaterPrefab;
     [SerializeField] HUD hud;
 
+    AvocadoController[] avocados;
+
     [System.Serializable]
     public enum PlayerNumber {
       Player1,
@@ -42,6 +44,10 @@ public class AvocadoController : MonoBehaviour {
     GameObject[] joeHockey;
     public int joeFactor;
 
+  public Vector3 GetPosition() {
+    return xform.position;
+  }
+
   void OnEnable () {
     currentAnimation = animIdle;
     forward = new Vector3(cameraTransform.forward.x, 0f, cameraTransform.forward.z).normalized;
@@ -50,6 +56,7 @@ public class AvocadoController : MonoBehaviour {
     xform = GetComponent<Transform>();
     source = GetComponent<AudioSource>();
     joeHockey = GameObject.FindGameObjectsWithTag("ShowTheJoe");
+    avocados = FindObjectsOfType<AvocadoController>();
   }
 
   bool isSwinging = false;
@@ -188,13 +195,28 @@ public class AvocadoController : MonoBehaviour {
     };
   }
 
+  float GetAmplifiedSpeed (float min, float max, float direction) {
+    var source = GetPosition();
+    var boost = 0f;
+
+    for (int i = 0; i < avocados.Length; i++) {
+      if (avocados[i] == this) continue;
+      var diff = direction * (avocados[i].GetPosition().x - source.x);
+      boost += Mathf.Max(0f, diff);
+    }
+
+    return Mathf.Lerp(min, max, boost);
+  }
+
   void FixedUpdate () {
     if (hud.hasFinished) return;
 
-    var relativeFrame = 30f * GetCameraRelative(
+    var relativeFrame = GetCameraRelative(
       playerNumber == PlayerNumber.Player1 ? Input.GetAxis("Horizontal") : Input.GetAxis("Horizontal P2"),
       playerNumber == PlayerNumber.Player1 ? Input.GetAxis("Vertical") : Input.GetAxis("Vertical P2")
     );
+
+    relativeFrame *= GetAmplifiedSpeed(30f, 40f, relativeFrame.x);
 
     if (Mathf.Abs(relativeFrame.z) > 0.001f) {
       swingDirection = Mathf.Sign(relativeFrame.z);

@@ -15,7 +15,7 @@ public class StartText : MonoBehaviour {
   }
 
   void Update () {
-    if (!loading && Input.GetButtonUp("Jump")) {
+    if (!loading && Input.anyKeyDown && !Input.GetKeyDown(KeyCode.Escape)) {
       SceneManager.LoadSceneAsync(sceneIndex, LoadSceneMode.Single);
       loading = true;
     }

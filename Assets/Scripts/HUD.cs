@@ -6,14 +6,17 @@ using System.Threading;
 using UnityEngine.SceneManagement;
 using TMPro;
 using PlayerNumber = AvocadoController.PlayerNumber;
+using String = System.String;
 
 public class HUD : MonoBehaviour
 {
     [UnityEngine.Serialization.FormerlySerializedAs("scoreText")]
     public TextMeshProUGUI scoreText1;
     public TextMeshProUGUI scoreText2;
+    [Range(1, 2)]
+    public int playerCount = 1;
     public Text finalScore;
-    public float score;
+    public float[] score;
     public float minScore = 0;
     public float maxScore = 16000000;
     public Slider scoreBar;
@@ -23,12 +26,17 @@ public class HUD : MonoBehaviour
     private string scoreDesc;
     bool keepTiming;
     public bool hasFinished = false;
+    public Selectable selectOnEnd;
 
     public string MenuName;
     public string CreditsName;
 
     GameObject[] pauseObjects;
     GameObject[] scoreObjects;
+
+    void OnEnable () {
+      score = new float[playerCount];
+    }
 
     void Start()
     {
@@ -43,14 +51,19 @@ public class HUD : MonoBehaviour
     }
 
     public void BoostScore (PlayerNumber player, float boost) {
-      score = score + boost;
-
       switch (player) {
-        case PlayerNumber.Player1: SetScoreText(scoreText1); break;
-        case PlayerNumber.Player2: SetScoreText(scoreText2); break;
+        case PlayerNumber.Player1: SetScoreText(scoreText1, score[0] += boost); break;
+        case PlayerNumber.Player2: SetScoreText(scoreText2, score[1] += boost); break;
       }
 
-      scoreBar.value = score;
+
+      scoreBar.value = GetTotal();
+    }
+
+    float GetTotal () {
+      var total = 0f;
+      for (int i = 0; i < score.Length; i++) total += score[i];
+      return total;
     }
 
     void Update()
@@ -82,9 +95,15 @@ public class HUD : MonoBehaviour
         }
     }
 
-    void SetScoreText(TextMeshProUGUI textMesh)
+    void SetScoreText(TextMeshProUGUI textMesh, float score)
     {
-       textMesh.text = "$" + score.ToString("f0") + " smashed";
+       textMesh.text = "$" + String.Format("{0:n0}", score) + " smashed";
+    }
+
+    IEnumerator SelectMenu () {
+      yield return new WaitForSeconds(1f);
+      selectOnEnd.Select();
+      yield return null;
     }
 
     public void showScore()
@@ -96,7 +115,13 @@ public class HUD : MonoBehaviour
             g.SetActive(true);
         }
 
-        finalScore.text = finalScore.text = "You earned: $" + score.ToString() + ", just enough to " + scoreDesc;
+        var score = GetTotal();
+        var prefix = playerCount > 1
+          ? "Together, you earned"
+          : "You earned";
+
+        finalScore.text = finalScore.text = prefix + " $" + String.Format("{0:n0}", score) + ". That's just enough to " + scoreDesc;
+        StartCoroutine(SelectMenu());
 
         if (score >= 0 && score <= 499)
         {

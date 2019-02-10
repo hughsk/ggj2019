@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class CreditsController : MonoBehaviour {
   void Update () {
-    if (Input.GetButtonUp("Cancel") || Input.GetButtonUp("Jump") || Input.GetButtonUp("Submit")) {
+    if (Input.anyKeyDown) {
       SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
   }
